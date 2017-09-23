@@ -1,0 +1,18 @@
+<div>
+
+  <section>
+    I am Home/Main Component, Showing the Demo of <code>@Input</code>
+    <h3>@Input</h3>
+    <hr />
+    <input type="text" #name >
+    <button (click)="saveDate(name.value)">Save</button>
+
+    {{dataFromChild}}
+  </section>
+
+<app-child [inputData]="propertyBinding" (emitToParent)="callCurrentClassFunction($event)">
+  <div class="alert">
+    <h1>I am from inner content/ng-content</h1>
+  </div>
+</app-child>
+</div>

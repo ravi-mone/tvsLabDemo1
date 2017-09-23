@@ -1,0 +1,18 @@
+<div>
+  Display {{languageSelected}} Channel details
+
+  <div *ngIf="inboxData.length">
+    <ul *ngFor="let inbox of inboxData">
+      <li>{{inbox.program}}</li>
+      <li>{{inbox.time}}</li>
+      <li><button (click)="editRecord(inbox)">Edit</button></li>
+    </ul>
+  </div>
+</div>
+<hr />
+<section *ngIf="editData">
+  Edit Form
+  <input type="text" [(ngModel)]="editData.program">
+  <li><button (click)="saveRecord()">Save</button></li>
+</section>
+
