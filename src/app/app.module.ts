@@ -10,6 +10,8 @@ import {CommunicationModule} from './communication/communication.module';
 import {ChannelModule} from './channel/channel.module';
 import {AboutModule} from './about/about.module';
 import { MakeUpperPipe } from './make-upper.pipe';
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthInterceptor} from "../../security/httpClient.interceptor";
 
 const routes:Routes = [
   {path:'home', component : HomeComponent},
@@ -31,7 +33,11 @@ const routes:Routes = [
     AboutModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

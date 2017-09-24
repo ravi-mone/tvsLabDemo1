@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {CommunicationService} from "./communication.service";
+
 @Component({
   selector: 'app-communication',
   templateUrl: './communication.component.html',
@@ -30,17 +30,9 @@ export class CommunicationComponent implements OnInit {
   };
   submitted = false;
 
-  suggestUserName() {
-    const suggestedName = 'Superuser';
-
-  }
-
-  // onSubmit(form: NgForm) {
-  //   console.log(form);
-  // }
 
   onSubmit() {
-    console.log('YOUR DATA :', this.signupForm)
+    console.log('YOUR DATA :', this.signupForm.value)
     this.submitted = true;
     this.user.username = this.signupForm.value.userData.username;
     this.user.email = this.signupForm.value.userData.email;
